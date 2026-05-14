@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aura Blog Platform 🚀
+
+A premium, cloud-based blog platform built with **Next.js 15 (App Router)** and **Supabase**.
+
+## Features
+- **Modern Design**: Dark mode, glassmorphism, and smooth animations with Framer Motion.
+- **Supabase Integration**: Authentication, Postgres Database, and Row-Level Security (RLS).
+- **Markdown Support**: Write posts in markdown with live rendering.
+- **Dynamic SEO**: Auto-generated metadata and sitemap.
+- **Interactive Comments**: Engage with readers through a custom comment system.
 
 ## Getting Started
 
-First, run the development server:
-
+### 1. Clone the repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <your-repo-url>
+cd blog
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install dependencies
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Configure Supabase
+1. Create a new project at [supabase.com](https://supabase.com).
+2. Copy your **Project URL** and **Anon Key** to `.env.local`:
+   ```env
+   NEXT_PUBLIC_SUPABASE_URL=your_url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_key
+   ```
+3. Run the SQL script found in `supabase/setup.sql` in your Supabase SQL Editor to create tables and RLS policies.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. Run locally
+```bash
+npm run dev
+```
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+1. Push your code to GitHub.
+2. Import the repository into [Vercel](https://vercel.com).
+3. Add the environment variables (`NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`) in the Vercel dashboard.
+4. Deploy!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Architecture
+- **Frontend**: Next.js (TypeScript, Tailwind CSS v4)
+- **Backend**: Supabase (Auth, Postgres, Storage)
+- **Deployment**: Vercel
