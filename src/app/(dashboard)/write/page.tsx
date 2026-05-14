@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { supabase } from "@/lib/supabase";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Save, Send, SquarePen, Image as ImageIcon } from "lucide-react";
 
-export default function WriteBlogPage() {
+function WriteBlogContent() {
   const [title, setTitle] = useState("");
   const [markdown, setMarkdown] = useState("");
   const [excerpt, setExcerpt] = useState("");
@@ -166,5 +166,13 @@ export default function WriteBlogPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function WriteBlogPage() {
+  return (
+    <Suspense fallback={<div className="p-8 text-[#64748b]">Loading editor...</div>}>
+      <WriteBlogContent />
+    </Suspense>
   );
 }
