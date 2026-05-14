@@ -82,7 +82,7 @@ export const AnimatedDots: React.FC<AnimatedDotsProps> = ({
           255 - Math.round(this.velocity * (255 / (height + this.radius)));
         ctx.fillStyle = this.updateColors(colors[this.ranColor], colorIncrement);
         ctx.globalAlpha = opacity;
-        ctx.globalCompositeOperation = blendMode;
+        ctx.globalCompositeOperation = blendMode as GlobalCompositeOperation;
 
         if (this.velocity >= height + this.radius) {
           this.velocity = 0;

@@ -65,7 +65,7 @@ export default function SettingsPage() {
 
     const { error } = await supabase
       .from("profiles")
-      .update({ 
+      .update({
         display_name: profile.display_name,
         bio: profile.bio,
         website: profile.website,
@@ -79,7 +79,7 @@ export default function SettingsPage() {
     } else {
       setMessage({ type: "success", text: "Settings saved successfully!" });
     }
-    
+
     setSaving(false);
     setTimeout(() => setMessage({ type: "", text: "" }), 5000);
   };
@@ -105,7 +105,7 @@ export default function SettingsPage() {
             </h2>
             <p className="text-sm text-[#64748b]">Manage the information that displays on your public blog posts.</p>
           </div>
-          
+
           <div className="p-8 space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
@@ -206,14 +206,14 @@ export default function SettingsPage() {
                   <p className="text-xs text-[#64748b] mt-1">Receive alerts when someone comments or likes your posts.</p>
                 </div>
               </div>
-              
+
               <label className="relative inline-flex cursor-pointer items-center">
-                <input 
-                  type="checkbox" 
+                <input
+                  type="checkbox"
                   name="email_notifications"
                   checked={profile.email_notifications}
                   onChange={handleChange}
-                  className="peer sr-only" 
+                  className="peer sr-only"
                 />
                 <div className="peer h-6 w-11 rounded-full bg-gray-200 after:absolute after:left-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-[#6366f1] peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none"></div>
               </label>
